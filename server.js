@@ -24,6 +24,24 @@ var reservations= [
 	phone:"555-555-5555",
 	email:"test@test.com",
 	uniqueId:"unique"
+},
+{
+	name:"Brandon",
+	phone:"555-555-5555",
+	email:"test@test.com",
+	uniqueId:"unique"
+},
+{
+	name:"Brandon",
+	phone:"555-555-5555",
+	email:"test@test.com",
+	uniqueId:"unique"
+},
+{
+	name:"5",
+	phone:"555-555-5555",
+	email:"test@test.com",
+	uniqueId:"unique"
 }
 ]
 var waitList= [
@@ -66,7 +84,7 @@ app.post("/api/reservation", function(req, res) {
 	console.log("successfully reserver!")
 	console.log(req.body)
 	var newReso = req.body
-	if (reservations.length >5){
+	if (reservations.length >= 5){
 		waitList.push(newReso)
 	}
 	else{
