@@ -51,16 +51,18 @@ app.get('/make', function (req, res) {
 	res.sendFile(path.join(__dirname, '/make.html'));
 });
 
-app.get("/api/reservation", function(req, res) {
+app.post("/api/waitlist", function(req, res) {
 	return res.json(waitList);
   });
 
-app.get("/api/waitlist", function(req, res) {
-	return res.json(reservations);
-  });
-
-var newReso = req.body
-reservations.push(newReso)
+app.post("/api/reservation", function(req, res) {
+	console.log("successfully reserver!")
+	console.log(req.body)
+	var newReso = req.body
+	reservations.push(newReso)
+	console.log(reservations)
+	return res.json(reservations)
+});
 
 // Starts the server to begin listening
 // =============================================================
