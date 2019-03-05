@@ -11,12 +11,15 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 app.get('/', function (req, res) {
     console.log('home page');
-    res.sendFile(path.join("/index.html"));
+    res.sendFile(path.join(__dirname, "index.html"));
 });
 app.get('/reserve', function (req, res) {
     console.log('reserve page');
-    res.sendFile(path.join('/make.html'));
+    res.sendFile(path.join(__dirname, ".html"));
     });
+app.get("/tables", function (req, res) {
+    console.log("Waiting List");
+})
 
 
 var tables = [
@@ -30,4 +33,4 @@ var tables = [
     email: "mike@mail.com",
     customerID: 2
 
-    }]
+    }];
