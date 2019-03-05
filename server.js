@@ -18,6 +18,12 @@ var reservations= [
 	phone:"555-555-5555",
 	email:"test@test.com",
 	uniqueId:"unique"
+},
+{
+	name:"Brandon",
+	phone:"555-555-5555",
+	email:"test@test.com",
+	uniqueId:"unique"
 }
 ]
 var waitList= [
@@ -50,7 +56,7 @@ app.get("/api/reservation", function(req, res) {
   });
 
 app.get("/api/waitlist", function(req, res) {
-	return res.json(waitList);
+	return res.json(reservations);
   });
 
 var newReso = req.body
