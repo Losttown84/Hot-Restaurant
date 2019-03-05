@@ -53,11 +53,12 @@ app.get("/api/waitlist", function(req, res) {
 	return res.json(waitList);
   });
 
-
+var newReso = req.body
+reservations.push(newReso)
 
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
 	console.log("App listening on PORT " + PORT);
   });
-  
+
