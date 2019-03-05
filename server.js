@@ -18,6 +18,12 @@ var reservations= [
 	phone:"555-555-5555",
 	email:"test@test.com",
 	uniqueId:"unique"
+},
+{
+	name:"Brandon",
+	phone:"555-555-5555",
+	email:"test@test.com",
+	uniqueId:"unique"
 }
 ]
 var waitList= [
@@ -48,7 +54,7 @@ app.get('/make', function (req, res) {
 app.post("/api/waitlist", function(req, res) {
 	return res.json(waitList);
   });
-  
+
 app.post("/api/reservation", function(req, res) {
 	console.log("successfully reserver!")
 	console.log(req.body)
@@ -57,7 +63,7 @@ app.post("/api/reservation", function(req, res) {
 	console.log(reservations)
 	return res.json(reservations)
 });
- 
+
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
