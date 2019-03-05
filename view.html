@@ -29,9 +29,20 @@
                 </div>
               </div>
 
+              <div class="card">
+                    <div class="card-header">
+                      <h3><strong>Current waitList</strong></h3>
+                    </div>
+                    <div class="card-body">
+                      <div id="waitInfo">
+                       
+                    </div>
+                    </div>
+                  </div>
+
         <script>
 
-              $.get("/api/waitlist", function(data) {
+              $.get("/api/reservation", function(data) {
         console.log(data);
         for(i=0;i<data.length;i++){
             var newRow= $("<div>")
@@ -43,6 +54,22 @@
             var space = $("<hr>")
                 newRow.append(id,name,email,phone,space)
                 $("#tableInfo").append(newRow)
+            }
+        })
+
+
+        $.get("/api/waitlist", function(data) {
+        console.log(data);
+        for(i=0;i<data.length;i++){
+            var newRow= $("<div>")
+            var tableNumber= $('<div>Wait List Number:'+ (i+1)+ '</div>')
+            var id = $('<h3>ID: '+ data[i].uniqueId+ '</h3>')
+            var name= $('<h3>Name: '+ data[i].name+ '</h3>')
+            var email= $('<h3>Email: '+ data[i].email+ '</h3>')
+            var phone= $('<h3>ID: '+ data[i].phone+ '</h3>')
+            var space = $("<hr>")
+                newRow.append(id,name,email,phone,space)
+                $("#waitInfo").append(newRow)
             }
         })
         </script>

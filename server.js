@@ -50,6 +50,13 @@ app.get('/make', function (req, res) {
 	console.log('make reservation');
 	res.sendFile(path.join(__dirname, '/make.html'));
 });
+app.get("/api/reservation", function(req, res) {
+	return res.json(reservations);
+  });
+
+app.get("/api/waitlist", function(req, res) {
+	return res.json(waitList);
+  });
 
 app.post("/api/waitlist", function(req, res) {
 	return res.json(waitList);
@@ -59,7 +66,12 @@ app.post("/api/reservation", function(req, res) {
 	console.log("successfully reserver!")
 	console.log(req.body)
 	var newReso = req.body
+	if (reservations.length >5){
+		waitList.push(newReso)
+	}
+	else{
 	reservations.push(newReso)
+	}
 	console.log(reservations)
 	return res.json(reservations)
 });
