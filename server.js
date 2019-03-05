@@ -12,6 +12,24 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
+var reservations= [
+	{
+	name:"Brandon",
+	phone:"555-555-5555",
+	email:"test@test.com",
+	uniqueId:"unique"
+}
+]
+var waitList= [
+	{
+	name:"Chad",
+	phone:"111-111-1111",
+	email:"test2@test.com",
+	uniqueId:"myID"
+
+}
+]
+
 app.get('/', function (req, res) {
 	console.log('home page');
 	res.sendFile(path.join(__dirname, '/index.html'));
@@ -26,6 +44,16 @@ app.get('/make', function (req, res) {
 	console.log('make reservation');
 	res.sendFile(path.join(__dirname, '/make.html'));
 });
+
+app.get("/api/reservation", function(req, res) {
+	return res.json(waitList);
+  });
+
+app.get("/api/waitlist", function(req, res) {
+	return res.json(waitList);
+  });
+
+
 
 // Starts the server to begin listening
 // =============================================================
