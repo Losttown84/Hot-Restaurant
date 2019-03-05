@@ -66,6 +66,23 @@
                 customerID: $('#reserve_uniqueID').val().trim()
             };
     console.log(newReservation);
-    
-
+    var currentURL = window.location.origin;
+            $.post(currentURL + "/api/reserve", newReservation,
+            function(data){
+                console.log(data + "hello")
+                // If a table is available... tell user they are booked.
+                if(data == true){
+                    alert("you are officially booked!")
+                }
+                if(data == false){
+                alert("Sorry, you are now on the waiting list!")
+            }
+            //clear before submitting//
+ $('#reserve_name').val("");
+ $('#reserve_phone').val("");
+ $('#reserve_email').val("");
+ $('#reserve_uniqueID').val("");
+        });
+        return false;
+    });
         </script>
